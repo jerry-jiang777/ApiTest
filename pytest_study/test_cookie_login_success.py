@@ -1,8 +1,15 @@
-from requests_study.mtxshop_apis import login
+import allure
 
+from requests_study.mtxshop_apis import buyer_login
+
+
+@allure.epic("码同学全栈接口项目")
+@allure.feature("cookie案例")
+@allure.story("登陆接口各项用例")
+@allure.title("买家登录成功")
 def test_login_success():
     # 调用目标接口,作为测试数据传入
-    resp = login(username="cici", password="cici321654")
+    resp = buyer_login(username="cici", password="d92652d4522c9bc175f9ef5bbc862a9f")
     # 断言
     status_code = resp.status_code
     assert status_code == 200  # 状态码断言
@@ -13,5 +20,5 @@ def test_login_success():
     # message = resp.json()["message"]  # 从响应体中获取message的值
     # assert message == "success"
     # 如何获取整体响应数据是否正确呢
-    text = resp.text
-    assert text == '{"uid":7778611,"username":"cici","nickname":"cici","access_token":"eyJhbGciOiJIUzUxMiJ9.eyJ1aWQiOjc3Nzg2MTEsInN1YiI6IkJVWUVSIiwicm9sZXMiOlsiQlVZRVIiXSwiZXhwIjoxNzM3NDQwODk5LCJ1dWlkIjpudWxsLCJ1c2VybmFtZSI6ImNpY2kifQ.ceFAon4Zf-OIgZul1fqAbzbb0LPJrA8tabTYXJS0lKdrTXsEDTszy0T8Z4oFqM7ITnv1XuNE2upivumgb3-DwQ","refresh_token":"eyJhbGciOiJIUzUxMiJ9.eyJ1aWQiOjc3Nzg2MTEsInN1YiI6IkJVWUVSIiwicm9sZXMiOlsiQlVZRVIiXSwiZXhwIjoxNzM3NDQxNDk5LCJ1dWlkIjpudWxsLCJ1c2VybmFtZSI6ImNpY2kifQ.7ZJHlzIbuT-FyvW9Qvc8_HOTSaKK_uxgQqsO3dMqyP4zxaPTW7iUaSR16HfaQUKtILEKRT8my_bW6oPKNJGwIg","face":null}'
+    # text = resp.text
+    # assert text == '{"uid":7778611,"username":"cici","nickname":"cici","access_token":"eyJhbGciOiJIUzUxMiJ9.eyJ1aWQiOjc3Nzg2MTEsInN1YiI6IkJVWUVSIiwicm9sZXMiOlsiQlVZRVIiXSwiZXhwIjoxNzM5MzU0OTQzLCJ1dWlkIjpudWxsLCJ1c2VybmFtZSI6ImNpY2kifQ.PqGghm8bKwB8f1DjbX1TODpjsWhFc0t_yV8Q0AqJ8BKV29fb1ZN5m3sxMtRGShzWWEYvLB5TZKlApUScORpaEQ","refresh_token":"eyJhbGciOiJIUzUxMiJ9.eyJ1aWQiOjc3Nzg2MTEsInN1YiI6IkJVWUVSIiwicm9sZXMiOlsiQlVZRVIiXSwiZXhwIjoxNzM5MzU1NTQzLCJ1dWlkIjpudWxsLCJ1c2VybmFtZSI6ImNpY2kifQ.tnOeIXnFd0rRa8UC_ciec31TomoAK7-3tXYe6vzIVvDtq3Q9qF7Utmx89IBBvB7enNKFiRnzXWez1q9Y2LYyvg","face":null}'

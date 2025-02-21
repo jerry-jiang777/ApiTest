@@ -1,14 +1,20 @@
 # 以类的方式编写测试用例
-from requests_study.mtxshop_apis import login
+import allure
+
+from requests_study.mtxshop_apis import buyer_login
 
 
+@allure.epic("码同学微服务商城项目")
+@allure.feature("买家服务接口")
+@allure.story("买家登陆接口正常用例")
 class TestBuyerLogin:
 
     # 在测试类中不能存在__init__方法
     # 在测试类中以test_开头的的方法代表一条测试用例
 
+    @allure.title("买家登陆成功")
     def test_login_success(self):
-        resp = login()
+        resp = buyer_login()
         # 断言
         assert resp.json()["username"] == "cici"
         assert resp.json()["nickname"] == "cici"
